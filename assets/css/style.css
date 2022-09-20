@@ -9,7 +9,7 @@ body {
     color: #fff;
 }
 
-@media screen and (min-width: 1280px) {
+@media screen and (min-width: 1080px) {
     body {
         display: grid;
         grid-template-columns: auto 1fr;
@@ -19,7 +19,6 @@ body {
 .cabecalho {
     display: flex;
     justify-content: space-between;
-    align-items: center;
     background-color: #15191C;
     padding: 8px 16px;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.16);
@@ -43,15 +42,15 @@ body {
     display: none;
 }
 
-@media screen and (min-width: 1280px) {
+@media screen and (min-width: 1080px) {
     .cabecalho {
         background-color: #1D232A;
-        display: grid;
-        column-gap: 32px;
-        grid-template-columns: 1fr auto;
         padding: 16px 60px;
         height: 80px;
         box-sizing: border-box;
+        display: grid;
+        grid-template-columns: 1fr auto;
+        column-gap: 32px;
         grid-column: 2;
     }
 
@@ -65,13 +64,13 @@ body {
 
     .cabecalho__perfil {
         display: grid;
-        grid-template-columns: repeat(3, auto);
         column-gap: 8px;
+        grid-template-columns: repeat(3, auto);
         align-items: center;
-        justify-self: flex-end;
         color: #95999C;
         padding: 8px 32px;
         border-right: 1px solid #95999C;
+        justify-self: flex-end;
     }
 
     .cabecalho__perfil::before{
@@ -81,8 +80,8 @@ body {
         height: 32px;
         background-image: url(../img/profile_2.png);
         background-size: contain;
-        background-repeat: none;
         background-position: center;
+        background-repeat: none;
     }
 
     .cabecalho__perfil::after {
@@ -108,9 +107,9 @@ body {
 }
 
 .menu-lateral__logo {
-    align-self: center;
     width: 118px;
     padding: 16px;
+    align-self: center;
 }
 
 .menu-lateral__link {
@@ -128,7 +127,7 @@ body {
 }
 
 .menu-lateral__link::before {
-    content: "\e900";
+    content: "";
     width: 24px;
     height: 24px;
     font-size: 24px;
@@ -139,6 +138,7 @@ body {
 .menu-lateral__link--inicio::before {
     content: "\e902";
 }
+
 
 .menu-lateral__link--videos::before {
     content: "\e90e"
@@ -160,9 +160,9 @@ body {
     content: "\e90a"
 }
 
-@media screen and (min-width: 1280px) {
+@media screen and (min-width: 1080px) {
     .menu-lateral {
-        position: static;
+        position:static;
         width: 200px;
         grid-column: 1;
         grid-row: 1 / span 2;
@@ -175,6 +175,11 @@ body {
     gap: 16px;
 }
 
+.secao {
+    display: grid;
+    gap: 20px;
+}
+
 .titulo-pagina {
     font-size: 1.5rem;
     font-weight: 700;
@@ -185,28 +190,32 @@ body {
     font-weight: 700;
 }
 
-@media screen and (min-width: 1280px) {
+@media screen and (min-width: 1080px) {
     .principal {
-        display: grid;
-        grid-template-columns: auto 1fr auto;
-        grid-template-areas:
-            "titulo-pagina titulo-pagina titulo-pagina"
-            "destaque-video destaque-video video-recentes"
-            "secao-videos secao-videos secao-videos"
-            "produtos-recentes destaque-produtos destaque-produtos"
-            "secao-produtos secao-produtos secao-produtos"
-        ;
-        column-gap: 32px;
         padding: 16px 60px;
         grid-column: 2;
     }
 
-    .titulo-secao {
-        grid-column: span 4;
+    .secao {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+        grid-auto-rows: min-content;
     }
 
     .titulo-pagina {
-        grid-area: titulo-pagina;
+        grid-column: span 4;
+    }
+
+    .cartao--destaque {
+        grid-column: span 3;
+    }
+
+    .videos-recentes {
+        grid-column: 4
+    }
+
+    .titulo-secao {
+        grid-column: span 4;
     }
 }
 
@@ -230,10 +239,6 @@ body {
     display: grid;
     grid-template-columns: auto 1fr;
     gap: 8px;
-}
-
-.cartao__destaque {
-    grid-column: span 2;
 }
 
 .cartao__titulo {
@@ -299,7 +304,8 @@ body {
     display: none;
 }
 
-@media screen and (min-width: 1280px) {
+/* cartões */
+@media screen and (min-width: 1080px) {
     .cartao--destaque {
         margin-bottom: 0;
     }
@@ -311,7 +317,7 @@ body {
     .cartao__imagem--desktop {
         display: block;
     }
-
+    
     .cartao__botao--destaque {
         grid-column: auto;
         padding: 16px 8px;
@@ -319,13 +325,13 @@ body {
 
     .cartao--recentes {
         display: grid;
+        width: auto;
+        height: fit-content;
+        padding: 16px;
+        row-gap: 24px;
         grid-template-columns: auto auto;
         align-items: center;
-        row-gap: 24px;
-        width: 256px;
-        padding: 16px;
         box-sizing: border-box;
-        align-self: flex-start;
     }
 
     .cartao--recentes .cartao__titulo {
@@ -365,40 +371,5 @@ body {
     .cartao__item-perfil {
         font-size: 0.8rem;
         color: #95999C;
-    }
-}
-
-.secao {
-    display: grid;
-    gap: 16px;
-}
-
-@media screen and (min-width: 1280px) {
-    .secao {
-        grid-template-columns: repeat(4, 1fr);
-    }
-        
-    .destaque-video {
-        grid-area: destaque-video;
-    }
-
-    .video-recentes {
-        grid-area: destaque-video;
-    }
-
-    .secao-videos {
-        grid-area: secao-videos;
-    }
-
-    .destaque-produtos {
-        grid-area: destaque-produtos;
-    }
-
-    .produtos-recentes {
-        grid-area: produtos-recentes;
-    }
-
-    .secao-produtos {
-        grid-area: secao-produtos;
     }
 }
